@@ -24,14 +24,47 @@ const routes = [{
 		children: [{
 			path: '/users',
 			name: 'users',
+			meta: {
+				breadcrumb:[
+					{
+						name:'用户管理'
+					},{
+						name:'管理员'
+					},{
+						name:'列表'
+					}
+				]
+			},
 			component: Users
 		}, {
 			path: '/functions',
 			name: 'functions',
+			meta: {
+				breadcrumb:[
+					{
+						name:'用户管理'
+					},{
+						name:'权限'
+					},{
+						name:'列表'
+					}
+				]
+			},
 			component: Functions
 		}, {
 			path: '/role',
 			name: 'role',
+			meta: {
+				breadcrumb:[
+					{
+						name:'用户管理'
+					},{
+						name:'角色'
+					},{
+						name:'列表'
+					}
+				]
+			},
 			component: Role
 		}]
 	},

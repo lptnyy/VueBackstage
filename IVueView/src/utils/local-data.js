@@ -1,5 +1,6 @@
 /*-------------------------router面包屑-start---------------------------------------*/
 const routerBreadcrumb = {
+	
   // 内容管理-文章管理
   articleList: {
     list: [

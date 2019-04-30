@@ -26,9 +26,9 @@
 		</Modal>
 		<div style="width: 100%; text-align: left;">
 			<Breadcrumb :style="{margin: '24px 0'}">
-				<BreadcrumbItem>Home</BreadcrumbItem>
-				<BreadcrumbItem>Components</BreadcrumbItem>
-				<BreadcrumbItem>Layout</BreadcrumbItem>
+				<BreadcrumbItem v-for="(item,index) in breadcrumb" :key="index">
+					{{item.name}}
+				</BreadcrumbItem>
 			</Breadcrumb>
 		</div>
 		<Button @click="toAdd" type="primary" class="table-but" style="margin-bottom: 10px;">添加</Button>
@@ -120,7 +120,8 @@
 				data1: [
 
 				],
-				total: 100
+				total: 100,
+				breadcrumb:[]
 			}
 		},
 		components: {
@@ -222,6 +223,7 @@
 			}
 		},
 		created() {
+			this.breadcrumb = this.$route.meta.breadcrumb
 			this.initData(1)
 		}
 	}

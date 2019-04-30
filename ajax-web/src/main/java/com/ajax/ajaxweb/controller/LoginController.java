@@ -70,13 +70,12 @@ public class LoginController {
                 jsonVo.setResult(true);
                 jsonVo.setMsg("ok");
             }
-            if (jsonVo.isResult()) {
-                user.setUserName("");
-                user.setUserPass("");
-                user.setToken(UUIDUtil.getUUID());
-                userService.setLoginInfo(user);
-                jsonVo.setObj(user);
-            }
+            user.setUserName("");
+            user.setUserPass("");
+            user.setToken(UUIDUtil.getUUID());
+            userService.setLoginInfo(user);
+            jsonVo.setObj(user);
+            jsonVo.setResult(true);
         } catch (Exception e) {
             jsonVo.setResult(false);
             jsonVo.setMsg(e.getMessage());

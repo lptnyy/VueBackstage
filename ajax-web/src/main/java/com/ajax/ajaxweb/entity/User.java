@@ -1,5 +1,7 @@
 package com.ajax.ajaxweb.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class User {
@@ -8,10 +10,48 @@ public class User {
     String userPass;
     Integer roleId;
     String token;
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
     Date createTime;
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    Date lastLloginTime;
+    Integer loginNum;
+    Integer stat;
+    String statString;
 
     public Integer getId() {
         return id;
+    }
+
+    public Date getLastLloginTime() {
+        return lastLloginTime;
+    }
+
+    public String getStatString() {
+        return statString;
+    }
+
+    public void setStatString(String statString) {
+        this.statString = statString;
+    }
+
+    public Integer getStat() {
+        return stat;
+    }
+
+    public void setStat(Integer stat) {
+        this.stat = stat;
+    }
+
+    public void setLastLloginTime(Date lastLloginTime) {
+        this.lastLloginTime = lastLloginTime;
+    }
+
+    public Integer getLoginNum() {
+        return loginNum;
+    }
+
+    public void setLoginNum(Integer loginNum) {
+        this.loginNum = loginNum;
     }
 
     public String getToken() {

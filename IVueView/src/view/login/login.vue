@@ -35,6 +35,7 @@
 						var user = result.obj;
 						localStorage.setItem("token", user.token)
 						localStorage.setItem("userId",user.id)
+						localStorage.setItem("userName",userName)
 						router.push({
 							name: "main"
 						})

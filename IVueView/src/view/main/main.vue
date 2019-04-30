@@ -6,16 +6,17 @@
         <Layout>
             <Header>
                 <Menu mode="horizontal" theme="dark" active-name="1">
-                    <div class="layout-logo"></div>
+                    <div class="layout-logo">
+						
+					</div>
                     <div class="layout-nav">
-                        <MenuItem name="1">
-                            <Icon type="ios-navigate"></Icon>
-                            Item 1
-                        </MenuItem>
-                        <MenuItem name="2">
-                            <Icon type="ios-keypad"></Icon>
-                            Item 2
-                        </MenuItem>
+					    <Submenu name="1">
+							<template slot="title">
+								<Icon type="md-person" />
+								{{userName}}
+							</template>
+							<MenuItem name="3-1">退出</MenuItem>
+						</Submenu>
                     </div>
                 </Menu>
             </Header>
@@ -34,7 +35,7 @@
                     </Menu>
                 </Sider>
                 <Layout :style="{padding: '0 24px 24px'}">
-                    <Content :style="{padding: '24px', minHeight: '280px', background: '#fff'}">
+                    <Content :style="{padding: '24px', minHeight: '600px', background: '#fff'}">
                         <router-view></router-view>
                     </Content>
                 </Layout>
@@ -45,10 +46,16 @@
 <script>
 	import $ from "jquery";
 	export default {
+		data(){
+			return{
+				userName:'admin'
+			}
+		},
 		components: {
 			
 		},
 		mounted() {
+			var userName = localStorage.getItem("userName")
 			function reinitIframe() {
 				try {
 					$("#layout").height($(window).height());
@@ -58,6 +65,7 @@
 				} catch (ex) {}
 			};
 			setInterval(reinitIframe, 1000);
+			this.userName = userName;
 		}
 	}
 </script>

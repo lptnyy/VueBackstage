@@ -10,6 +10,7 @@ public interface IRoleService {
     Role getRole(Role role) throws Exception;
     List<RoleVo> getRoleVos(Role role, int pageNo,int pageSize) throws Exception;
     int getRoleVosCount(Role role) throws Exception;
+    @Transactional
     int deleteRole(Integer roleId) throws Exception;
     int updateRoleStat(Integer roleId, Integer stat) throws Exception;
     @Transactional

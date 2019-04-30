@@ -1,0 +1,98 @@
+2019-04-30 09:18:06 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 6.0.14.Final
+2019-04-30 09:18:07 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Starting AjaxWebApplication on wangzhenyu-PC with PID 5736 (D:\PROJECT\VueBackstage\ajax-web\target\classes started by wujiaming in D:\PROJECT\VueBackstage\ajax-web)
+2019-04-30 09:18:07 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - No active profile set, falling back to default profiles: default
+2019-04-30 09:18:10 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8090 (http)
+2019-04-30 09:18:10 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 2927 ms
+2019-04-30 09:18:10 [main] INFO  [com.ajax.ajaxweb.util.configuration.DruidConfiguration] - init Druid Servlet Configuration 
+2019-04-30 09:18:10 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean] - Initializing EhCache CacheManager
+2019-04-30 09:18:11 [main] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-30 09:18:11 [main] INFO  [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] - Adding welcome page template: index
+2019-04-30 09:18:11 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8090 (http) with context path ''
+2019-04-30 09:18:11 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Started AjaxWebApplication in 4.672 seconds (JVM running for 5.122)
+2019-04-30 09:23:14 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2019-04-30 09:23:14 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 11 ms
+2019-04-30 09:23:14 [http-nio-8090-exec-1] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2019-04-30 09:25:28 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 6.0.14.Final
+2019-04-30 09:25:29 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Starting AjaxWebApplication on wangzhenyu-PC with PID 10612 (D:\PROJECT\VueBackstage\ajax-web\target\classes started by wujiaming in D:\PROJECT\VueBackstage\ajax-web)
+2019-04-30 09:25:29 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - No active profile set, falling back to default profiles: default
+2019-04-30 09:25:31 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8090 (http)
+2019-04-30 09:25:32 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 2916 ms
+2019-04-30 09:25:32 [main] INFO  [com.ajax.ajaxweb.util.configuration.DruidConfiguration] - init Druid Servlet Configuration 
+2019-04-30 09:25:32 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean] - Initializing EhCache CacheManager
+2019-04-30 09:25:32 [main] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-30 09:25:32 [main] INFO  [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] - Adding welcome page template: index
+2019-04-30 09:25:33 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8090 (http) with context path ''
+2019-04-30 09:25:33 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Started AjaxWebApplication in 4.445 seconds (JVM running for 4.862)
+2019-04-30 09:25:39 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2019-04-30 09:25:39 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 8 ms
+2019-04-30 09:25:39 [http-nio-8090-exec-1] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2019-04-30 09:26:03 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 6.0.14.Final
+2019-04-30 09:26:03 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Starting AjaxWebApplication on wangzhenyu-PC with PID 14988 (D:\PROJECT\VueBackstage\ajax-web\target\classes started by wujiaming in D:\PROJECT\VueBackstage\ajax-web)
+2019-04-30 09:26:03 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - No active profile set, falling back to default profiles: default
+2019-04-30 09:26:07 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8090 (http)
+2019-04-30 09:26:07 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 3701 ms
+2019-04-30 09:26:07 [main] INFO  [com.ajax.ajaxweb.util.configuration.DruidConfiguration] - init Druid Servlet Configuration 
+2019-04-30 09:26:08 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean] - Initializing EhCache CacheManager
+2019-04-30 09:26:08 [main] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-30 09:26:08 [main] INFO  [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] - Adding welcome page template: index
+2019-04-30 09:26:08 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8090 (http) with context path ''
+2019-04-30 09:26:08 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Started AjaxWebApplication in 5.614 seconds (JVM running for 6.636)
+2019-04-30 09:26:14 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2019-04-30 09:26:14 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 13 ms
+2019-04-30 09:26:21 [http-nio-8090-exec-1] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2019-04-30 09:26:59 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 6.0.14.Final
+2019-04-30 09:26:59 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Starting AjaxWebApplication on wangzhenyu-PC with PID 14140 (D:\PROJECT\VueBackstage\ajax-web\target\classes started by wujiaming in D:\PROJECT\VueBackstage\ajax-web)
+2019-04-30 09:26:59 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - No active profile set, falling back to default profiles: default
+2019-04-30 09:27:02 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8090 (http)
+2019-04-30 09:27:03 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 3124 ms
+2019-04-30 09:27:03 [main] INFO  [com.ajax.ajaxweb.util.configuration.DruidConfiguration] - init Druid Servlet Configuration 
+2019-04-30 09:27:03 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean] - Initializing EhCache CacheManager
+2019-04-30 09:27:03 [main] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-30 09:27:03 [main] INFO  [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] - Adding welcome page template: index
+2019-04-30 09:27:04 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8090 (http) with context path ''
+2019-04-30 09:27:04 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Started AjaxWebApplication in 4.662 seconds (JVM running for 5.086)
+2019-04-30 09:27:10 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2019-04-30 09:27:10 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 12 ms
+2019-04-30 09:27:11 [http-nio-8090-exec-1] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2019-04-30 09:28:04 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 6.0.14.Final
+2019-04-30 09:28:04 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Starting AjaxWebApplication on wangzhenyu-PC with PID 9944 (D:\PROJECT\VueBackstage\ajax-web\target\classes started by wujiaming in D:\PROJECT\VueBackstage\ajax-web)
+2019-04-30 09:28:04 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - No active profile set, falling back to default profiles: default
+2019-04-30 09:28:07 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8090 (http)
+2019-04-30 09:28:07 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 2969 ms
+2019-04-30 09:28:07 [main] INFO  [com.ajax.ajaxweb.util.configuration.DruidConfiguration] - init Druid Servlet Configuration 
+2019-04-30 09:28:08 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean] - Initializing EhCache CacheManager
+2019-04-30 09:28:08 [main] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-30 09:28:08 [main] INFO  [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] - Adding welcome page template: index
+2019-04-30 09:28:08 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8090 (http) with context path ''
+2019-04-30 09:28:08 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Started AjaxWebApplication in 4.571 seconds (JVM running for 5.006)
+2019-04-30 09:28:14 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2019-04-30 09:28:14 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 12 ms
+2019-04-30 09:28:14 [http-nio-8090-exec-1] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2019-04-30 09:41:44 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 6.0.14.Final
+2019-04-30 09:41:44 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Starting AjaxWebApplication on wangzhenyu-PC with PID 7252 (D:\PROJECT\VueBackstage\ajax-web\target\classes started by wujiaming in D:\PROJECT\VueBackstage\ajax-web)
+2019-04-30 09:41:44 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - No active profile set, falling back to default profiles: default
+2019-04-30 09:41:47 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8090 (http)
+2019-04-30 09:41:48 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 3236 ms
+2019-04-30 09:41:48 [main] INFO  [com.ajax.ajaxweb.util.configuration.DruidConfiguration] - init Druid Servlet Configuration 
+2019-04-30 09:41:48 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean] - Initializing EhCache CacheManager
+2019-04-30 09:41:48 [main] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-30 09:41:49 [main] INFO  [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] - Adding welcome page template: index
+2019-04-30 09:41:49 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8090 (http) with context path ''
+2019-04-30 09:41:49 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Started AjaxWebApplication in 4.889 seconds (JVM running for 5.393)
+2019-04-30 09:46:55 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2019-04-30 09:46:55 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 10 ms
+2019-04-30 09:46:56 [http-nio-8090-exec-1] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
+2019-04-30 10:13:08 [background-preinit] INFO  [org.hibernate.validator.internal.util.Version] - HV000001: Hibernate Validator 6.0.14.Final
+2019-04-30 10:13:08 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Starting AjaxWebApplication on wangzhenyu-PC with PID 3588 (D:\PROJECT\VueBackstage\ajax-web\target\classes started by wujiaming in D:\PROJECT\VueBackstage\ajax-web)
+2019-04-30 10:13:08 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - No active profile set, falling back to default profiles: default
+2019-04-30 10:13:11 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat initialized with port(s): 8090 (http)
+2019-04-30 10:13:12 [main] INFO  [org.springframework.web.context.ContextLoader] - Root WebApplicationContext: initialization completed in 2991 ms
+2019-04-30 10:13:12 [main] INFO  [com.ajax.ajaxweb.util.configuration.DruidConfiguration] - init Druid Servlet Configuration 
+2019-04-30 10:13:12 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean] - Initializing EhCache CacheManager
+2019-04-30 10:13:12 [main] INFO  [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor] - Initializing ExecutorService 'applicationTaskExecutor'
+2019-04-30 10:13:12 [main] INFO  [org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping] - Adding welcome page template: index
+2019-04-30 10:13:13 [main] INFO  [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] - Tomcat started on port(s): 8090 (http) with context path ''
+2019-04-30 10:13:13 [main] INFO  [com.ajax.ajaxweb.AjaxWebApplication] - Started AjaxWebApplication in 4.603 seconds (JVM running for 5.084)
+2019-04-30 10:13:22 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Initializing Servlet 'dispatcherServlet'
+2019-04-30 10:13:22 [http-nio-8090-exec-1] INFO  [org.springframework.web.servlet.DispatcherServlet] - Completed initialization in 13 ms
+2019-04-30 10:13:23 [http-nio-8090-exec-1] INFO  [com.alibaba.druid.pool.DruidDataSource] - {dataSource-1} inited
