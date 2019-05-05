@@ -6,18 +6,18 @@
 		<Modal @on-ok="ok" @on-cancel="cancel" :loading="loading" v-model="modal1" :title="modalTitle">
 			<Form :model="formItem" :label-width="100">
 				<FormItem label="用户名">
-					<Input v-model="formItem.name" placeholder="输入用户名"></Input>
+					<Input :readonly="formItem.readonly" v-model="formItem.userName" placeholder="输入用户名"></Input>
 				</FormItem>
 				<FormItem label="用户密码">
-					<Input v-model="formItem.password" placeholder="输入用户密码"></Input>
+					<Input v-model="formItem.userPass" placeholder="输入用户密码"></Input>
 				</FormItem>
 				<FormItem label="重复输入密码">
-					<Input v-model="formItem.repassword" placeholder="输入重复密码"></Input>
+					<Input v-model="formItem.reuserPass" placeholder="输入重复密码"></Input>
 				</FormItem>
 				<CheckboxGroup v-model="checkAllGroup" @on-change="checkAllGroupChange">
-					<FormItem :label="item.name" v-for="(item,index) in data2" :key="index" :name="item.name">
-						<Checkbox :label="item2.id" v-for="(item2,index2) in item.functionVoList" :key="index2" :name="item2.name">
-							<span>{{item2.name}}</span>
+					<FormItem label="选择角色">
+						<Checkbox :label="item.id" v-for="(item,index) in data2" :key="index" :name="item.roleName">
+							<span>{{item.roleName}}</span>
 						</Checkbox>
 					</FormItem>
 				</CheckboxGroup>
@@ -43,8 +43,14 @@
 	import {
 		getUsers,
 		updateStat,
-		deleteUser
+		deleteUser,
+		addUser,
+		getOptionUserRoles,
+		updateUser
 	} from '@/api/user'
+	import {
+		getUserRoles
+	} from '@/api/roles'
 	export default {
 		data(){
 			return {
@@ -118,10 +124,12 @@
 				modalTitle: '',
 				loading: true,
 				formItem: {
-					name: '',
-					password: '',
-					repassword: '',
-					functions: ''
+					userName: '',
+					userPass: '',
+					reuserPass: '',
+					functions: '',
+					userId: '',
+					readonly: false
 				},
 				checkAllGroup:[],
 				data2:[]
@@ -187,7 +195,7 @@
 				this.formItem.functions = data
 			},
 			ok(){
-				
+				this.addUser()
 			},
 			cancel(){
 				
@@ -196,11 +204,98 @@
 				this.modalTitle = '添加'
 				this.modal1 = true
 				this.loading = true
+				this.op = 1
+				this.initRole(0)
+				this.formItem.readonly = false
 			},
 			toEdt(index, row){
 				this.modalTitle = '修改'
 				this.modal1 = true
 				this.loading = true
+				this.op = 2
+				var id = this.data1[index].id;
+				this.formItem.userName = this.data1[index].userName
+				this.formItem.userPass = this.data1[index].userPass
+				this.formItem.reuserPass = this.data1[index].userPass
+				this.formItem.userId = this.data1[index].id
+				this.formItem.readonly = true
+				this.initRole(id)
+			},
+			clearFrom(){
+				this.formItem.userName = ''
+				this.formItem.userPass = ''
+				this.formItem.reuserPass = ''
+				this.checkAllGroup = []
+			},
+			initRole(userId){
+				var self = this;
+				getUserRoles(function(result) {
+					if (result.result) {
+						self.data2 = result.obj
+						if (self.op == 2){
+							self.initOptionRoles(userId)
+						}
+					} else {
+						self.$Message.error(result.msg);
+					}
+				})
+			},
+			initOptionRoles(userId){
+				var self = this;
+				getOptionUserRoles(userId,function(result) {
+					if (result.result) {
+						var myArray=new Array()
+						for(var i =0;i<result.obj.length;i++){
+							myArray[i]=result.obj[i].roleId
+						}
+						self.checkAllGroup = myArray
+						self.formItem.functions = myArray
+					} else {
+						self.$Message.error(result.msg);
+					}
+				})
+			},
+			addUser(){
+				var self = this;
+				if (self.op == 1){
+					var str = self.formItem.functions.toString();
+					addUser(self.formItem.userName,self.formItem.userPass,self.formItem.reuserPass, str, function(result){
+						if (result.result) {
+							self.$Message.success("操作成功")
+							self.loading = false
+							self.modal1 = false
+							self.initData(1)
+							self.clearFrom()
+						} else {
+							self.$Message.error(result.msg)
+						}
+						setTimeout(() => {
+							self.loading = false;
+							self.$nextTick(() => {
+								self.loading = true;
+							});
+						}, 1000);
+					});
+				} else {
+					var str = self.formItem.functions.toString();
+					updateUser(self.formItem.userId,self.formItem.userPass,self.formItem.reuserPass, str, function(result){
+						if (result.result) {
+							self.$Message.success("操作成功")
+							self.loading = false
+							self.modal1 = false
+							self.initData(1)
+							self.clearFrom()
+						} else {
+							self.$Message.error(result.msg)
+						}
+						setTimeout(() => {
+							self.loading = false;
+							self.$nextTick(() => {
+								self.loading = true;
+							});
+						}, 1000);
+					});
+				}
 			}
 		},
 		created(){

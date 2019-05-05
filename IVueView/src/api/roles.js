@@ -81,3 +81,14 @@ export const updateRole = (roleId,roleName,functions,resultFuc) => {
 		alert(error)
   })
 }
+
+export const getUserRoles = (resultFuc) => {
+  const data = {
+
+  }
+  jsonpGet('/admin/getUserRoles', data, function(result){
+		resultFuc(result)
+  }, function(error){
+		alert(error)
+  })
+}

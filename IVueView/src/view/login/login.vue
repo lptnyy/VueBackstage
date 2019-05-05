@@ -19,6 +19,9 @@
 	import {
 		login
 	} from '@/api/login'
+	import {
+		leftMenu
+	} from '@/api/main'
 	export default {
 		components: {
 			LoginForm
@@ -36,8 +39,18 @@
 						localStorage.setItem("token", user.token)
 						localStorage.setItem("userId",user.id)
 						localStorage.setItem("userName",userName)
-						router.push({
-							name: "main"
+						leftMenu(user.id, function(result) {
+							if (result.result) {
+								var functionnew = result.obj
+								console.log(functionnew)
+								localStorage.setItem('functions',JSON.stringify(functionnew));
+								console.log(localStorage.getItem("functions").toString())
+								router.push({
+									name: "main"
+								})
+							} else {
+								self.$Message.error(result.msg);
+							}
 						})
 					} else {
 						self.$Message.error(result.msg);

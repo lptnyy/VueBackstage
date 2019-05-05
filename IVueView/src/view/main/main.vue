@@ -15,7 +15,7 @@
 								<Icon type="md-person" />
 								{{userName}}
 							</template>
-							<MenuItem name="3-1">退出</MenuItem>
+							<MenuItem name="2-1" @click.native="reLogin()">退出</MenuItem>
 						</Submenu>
                     </div>
                 </Menu>
@@ -23,14 +23,14 @@
             <Layout>
                 <Sider hide-trigger :style="{background: '#fff'}">
                     <Menu active-name="1-2" theme="light" width="auto" :open-names="['1']">
-                        <Submenu name="1">
+                        <Submenu v-for="(item,index) in mainfunctions" :key="index" :name="item.id">
                             <template slot="title">
                                 <Icon type="ios-navigate"></Icon>
-                                用戶管理
+								{{item.name}}
                             </template>
-                            <MenuItem name="1-1" to="/users">管理員</MenuItem>
-                            <MenuItem name="1-2" to="/role">角色</MenuItem>
-                            <MenuItem name="1-3" to="/functions">权限</MenuItem>
+                            <MenuItem v-for="(item2,index2) in item.functions" :key="index2" :name="item2.id" :to="item2.url">
+								{{item2.name}}
+							</MenuItem>
                         </Submenu>
                     </Menu>
                 </Sider>
@@ -45,14 +45,26 @@
 </template>
 <script>
 	import $ from "jquery";
+	import router from '../../router'
 	export default {
 		data(){
 			return{
-				userName:'admin'
+				userName:'admin',
+				mainfunctions:[]
 			}
 		},
 		components: {
 			
+		},
+		methods:{
+			reLogin(){
+				localStorage.removeItem("token")
+				localStorage.removeItem("userId")
+				localStorage.removeItem("userName")
+				router.push({
+					name: "login"
+				})
+			}
 		},
 		mounted() {
 			var userName = localStorage.getItem("userName")
@@ -64,8 +76,9 @@
 					$("layout").height(mainheight)
 				} catch (ex) {}
 			};
-			setInterval(reinitIframe, 1000);
-			this.userName = userName;
+			setInterval(reinitIframe, 1000)
+			this.userName = userName
+			this.mainfunctions = JSON.parse(localStorage.getItem('functions'));
 		}
 	}
 </script>
