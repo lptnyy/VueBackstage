@@ -65,4 +65,12 @@ public interface UserMapper {
     @Insert("insert into user(userName,roleId,userPass,loginNum,token,stat) values(#{userName},#{roleId},#{userPass},#{loginNum},#{token},#{stat})")
     @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
     int addUser(User user);
+
+    /**
+     * 修改用户信息
+     * @param user
+     * @return
+     */
+    @Update("update user set userPass=#{userPass} where id=#{id}")
+    int updateUser(User user);
 }

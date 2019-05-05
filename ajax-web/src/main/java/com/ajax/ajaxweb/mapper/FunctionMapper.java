@@ -59,4 +59,25 @@ public interface FunctionMapper {
      */
     @Update("update functions set stat = #{stat} where id=#{id}")
     int updateStat(@Param(value = "id") Integer id,@Param(value = "stat") Integer stat);
+
+    /**
+     * 查询权限信息
+     * @return
+     */
+    @Select("select x.*,y.name as parentName,y.url as parentUrl from user t, user_role s, role e,role_functions w, functions x,functions y " +
+            " where t.id = s.userId " +
+            " and s.roleId = w.roleId " +
+            " and s.roleId = e.id " +
+            " and e.id = w.roleId " +
+            " and w.functionId = x.id " +
+            " and x.parentId = y.id " +
+            " and x.stat = 0 " +
+            " and y.stat = 0 " +
+            " and e.stat = 0 " +
+            " and x.isDel = 0 " +
+            " and y.isDel = 0 " +
+            " and t.stat = 0 " +
+            " and t.id = #{userId} " +
+            " order by x.parentId, x.id")
+    List<Function> getLeftUserFunctions(@Param(value = "userId") Integer userId);
 }

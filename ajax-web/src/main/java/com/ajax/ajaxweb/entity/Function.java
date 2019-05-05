@@ -1,6 +1,7 @@
 package com.ajax.ajaxweb.entity;
 
 import java.util.Date;
+import java.util.List;
 public class Function {
     Integer id;
     String name;
@@ -9,10 +10,37 @@ public class Function {
     Integer parentId;
     Integer stat;
     Integer isDel;
+    String parentName;
+    String parentUrl;
     Date createTime;
+    List<Function> functions;
 
     public Integer getId() {
         return id;
+    }
+
+    public String getParentUrl() {
+        return parentUrl;
+    }
+
+    public void setParentUrl(String parentUrl) {
+        this.parentUrl = parentUrl;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public List<Function> getFunctions() {
+        return functions;
+    }
+
+    public void setFunctions(List<Function> functions) {
+        this.functions = functions;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
     }
 
     public void setId(Integer id) {

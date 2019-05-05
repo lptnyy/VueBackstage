@@ -14,4 +14,5 @@ public interface IFunctionService {
     int delete(Integer id) throws Exception;
     int updateStat(Integer id, Integer stat) throws Exception;
     List<FunctionVo> getAuthorizations() throws Exception;
+    List<Function> getLeftUserFunctions(Integer userId) throws Exception;
 }

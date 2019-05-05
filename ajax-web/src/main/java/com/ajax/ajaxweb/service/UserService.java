@@ -70,4 +70,22 @@ public class UserService implements IUserService{
         return 0;
     }
 
+    @Override
+    public List<UserRole> getUserRoles(Integer userId) throws Exception {
+        return userRoleMapper.getUserRoleList(userId);
+    }
+
+    @Override
+    public int updateUser(User user, String roles) throws Exception {
+        String[] funciton = roles.split(",");
+        userMapper.updateUser(user);
+        userRoleMapper.deleteUserRole(user.getId());
+        for(String fun:funciton) {
+            UserRole userRole = new UserRole();
+            userRole.setRoleId(Integer.valueOf(fun));
+            userRole.setUserId(user.getId());
+            userRoleMapper.addUserRole(userRole);
+        }
+        return 0;
+    }
 }

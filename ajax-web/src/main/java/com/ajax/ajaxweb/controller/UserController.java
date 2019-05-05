@@ -1,5 +1,6 @@
 package com.ajax.ajaxweb.controller;
 import com.ajax.ajaxweb.entity.User;
+import com.ajax.ajaxweb.entity.UserRole;
 import com.ajax.ajaxweb.service.IUserService;
 import com.ajax.ajaxweb.util.JsonVo;
 import com.ajax.ajaxweb.util.StringUtils;
@@ -121,6 +122,11 @@ public class UserController {
                 jsonVo.setMsg("两次密码输入不同");
                 return jsonVo.toString();
             }
+            if (!StringUtils.isNotNull(roles)) {
+                jsonVo.setResult(false);
+                jsonVo.setMsg("没有选择角色");
+                return jsonVo.toString();
+            }
             User user = new User();
             user.setUserName(userName);
             User oldUser = userService.getUser(user);
@@ -131,6 +137,80 @@ public class UserController {
             }
             user.setUserPass(userPass);
             userService.addUser(user,roles);
+            jsonVo.setResult(true);
+        } catch (Exception e) {
+            jsonVo.setResult(false);
+            jsonVo.setMsg(e.getMessage());
+        }
+        return jsonVo.toString();
+    }
+
+    /**
+     * 删除用户
+     * @return
+     */
+    @RequestMapping(path = "/updateUser")
+    public String updateUser(
+            @RequestParam(value = "userId", defaultValue = "") String userId,
+            @RequestParam(value = "userPass", defaultValue = "") String userPass,
+            @RequestParam(value = "reuserPass", defaultValue = "") String reuserPass,
+            @RequestParam(value = "roles", defaultValue = "") String roles){
+        JsonVo<List<User>> jsonVo = new JsonVo<>();
+        jsonVo.setCallback("true");
+        try{
+            if(!StringUtils.isNotNull(userId)){
+                jsonVo.setResult(false);
+                jsonVo.setMsg("用户ID密码不能为空");
+                return jsonVo.toString();
+            }
+            if(!StringUtils.isNotNull(userPass)){
+                jsonVo.setResult(false);
+                jsonVo.setMsg("用户密码不能为空");
+                return jsonVo.toString();
+            }
+            if(!StringUtils.isNotNull(reuserPass)){
+                jsonVo.setResult(false);
+                jsonVo.setMsg("重复密码不能为空");
+                return jsonVo.toString();
+            }
+            if(!userPass.equals(reuserPass)){
+                jsonVo.setResult(false);
+                jsonVo.setMsg("两次密码输入不同");
+                return jsonVo.toString();
+            }
+            if (!StringUtils.isNotNull(roles)) {
+                jsonVo.setResult(false);
+                jsonVo.setMsg("没有选择角色");
+                return jsonVo.toString();
+            }
+            User user = new User();
+            user.setId(Integer.valueOf(userId));
+            user.setUserPass(userPass);
+            userService.updateUser(user,roles);
+            jsonVo.setResult(true);
+        } catch (Exception e) {
+            jsonVo.setResult(false);
+            jsonVo.setMsg(e.getMessage());
+        }
+        return jsonVo.toString();
+    }
+
+    /**
+     * 获取用户角色
+     * @return
+     */
+    @RequestMapping(path = "/getOptionUserRoles")
+    public String getOptionUserRoles(
+            @RequestParam(value = "userId", defaultValue = "") String userId){
+        JsonVo<List<UserRole>> jsonVo = new JsonVo<>();
+        jsonVo.setCallback("true");
+        try{
+            if(!StringUtils.isNotNull(userId)) {
+                jsonVo.setResult(false);
+                jsonVo.setMsg("用户Id不能为空");
+                return jsonVo.toString();
+            }
+            jsonVo.setObj(userService.getUserRoles(Integer.valueOf(userId)));
             jsonVo.setResult(true);
         } catch (Exception e) {
             jsonVo.setResult(false);

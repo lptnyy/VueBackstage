@@ -118,4 +118,27 @@ public class FunctionService implements IFunctionService{
         });
         return functionVos;
     }
+
+    @Override
+    public List<Function> getLeftUserFunctions(Integer userId) throws Exception {
+        List<Function> functions = functionMapper.getLeftUserFunctions(userId);
+        List<Function> newFunctions = new ArrayList<>();
+        Integer paerId = 0;
+        Function newFunction = null;
+        for(Function function: functions) {
+            if (!paerId.equals(function.getParentId())){
+                newFunction = new Function();
+                newFunction.setFunctions(new ArrayList<>());
+                newFunction.setId(function.getParentId());
+                newFunction.setName(function.getParentName());
+                newFunction.getFunctions().add(function);
+                newFunction.setUrl(function.getParentUrl());
+                newFunctions.add(newFunction);
+                paerId = function.getParentId();
+            } else {
+                newFunction.getFunctions().add(function);
+            }
+        }
+        return newFunctions;
+    }
 }

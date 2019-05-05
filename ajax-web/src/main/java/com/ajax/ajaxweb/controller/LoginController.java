@@ -1,6 +1,7 @@
 package com.ajax.ajaxweb.controller;
 import com.ajax.ajaxweb.entity.Role;
 import com.ajax.ajaxweb.entity.User;
+import com.ajax.ajaxweb.entity.UserRole;
 import com.ajax.ajaxweb.service.RoleService;
 import com.ajax.ajaxweb.service.UserService;
 import com.ajax.ajaxweb.util.JsonVo;
@@ -12,14 +13,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class LoginController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private RoleService roleService;
 
     /**
      * 登陆
@@ -50,7 +50,6 @@ public class LoginController {
         //根据权限，指定返回数据
         User userVo = new User();
         userVo.setUserName(username);
-        userVo.setUserPass(password);
         try {
             User user = userService.getUser(userVo);
             if (user == null) {
@@ -58,17 +57,18 @@ public class LoginController {
                 jsonVo.setMsg("此用户不存在");
                 return jsonVo.toString();
             }
-            Role roleVo = new Role();
-            roleVo.setId(user.getRoleId());
-            Role role = roleService.getRole(roleVo);
-            if (role == null) {
+            if (!user.getUserPass().equals(password)){
                 jsonVo.setResult(false);
-                jsonVo.setMsg("此用户没有设定权限");
+                jsonVo.setMsg("密码错误");
                 return jsonVo.toString();
             }
-            if ("admin".equals(role.getRoleName())) {
-                jsonVo.setResult(true);
-                jsonVo.setMsg("ok");
+            Role roleVo = new Role();
+            roleVo.setId(user.getRoleId());
+            List<UserRole> userRoles = userService.getUserRoles(user.getId());
+            if (userRoles.size() < 0) {
+                jsonVo.setResult(false);
+                jsonVo.setMsg("用户没有设置权限/权限已被注销");
+                return jsonVo.toString();
             }
             user.setUserName("");
             user.setUserPass("");

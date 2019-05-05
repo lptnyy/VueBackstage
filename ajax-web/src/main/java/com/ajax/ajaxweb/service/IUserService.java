@@ -1,6 +1,7 @@
 package com.ajax.ajaxweb.service;
 
 import com.ajax.ajaxweb.entity.User;
+import com.ajax.ajaxweb.entity.UserRole;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -17,4 +18,7 @@ public interface IUserService {
     int deleteUser(Integer id) throws Exception;
     @Transactional
     int addUser(User user, String roles) throws Exception;
+    List<UserRole> getUserRoles(Integer userId) throws Exception;
+    @Transactional
+    int updateUser(User user, String roles) throws Exception;
 }
