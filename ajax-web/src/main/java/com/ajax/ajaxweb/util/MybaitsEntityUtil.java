@@ -11,9 +11,9 @@ public class MybaitsEntityUtil {
 
     public static void main(String[] args) {
         MybaitsEntityUtil mybaist = new MybaitsEntityUtil();
-        mybaist.generate("role_functions");
+        mybaist.generate("user_role");
     }
-    public static final String url = "jdbc:mysql://localhost:3306/shiro?useUnicode=true&characterEncoding=utf-8";
+    public static final String url = "jdbc:mysql://localhost:3306/shirodb?useUnicode=true&characterEncoding=utf-8";
     public static final String name = "com.mysql.jdbc.Driver";
     public static final String user = "root";
     public static final String password = "wangyang";

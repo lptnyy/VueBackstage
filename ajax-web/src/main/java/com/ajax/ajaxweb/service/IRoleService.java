@@ -18,4 +18,5 @@ public interface IRoleService {
     List<RoleFunctions> getRoleFunctions(Integer roleId);
     @Transactional
     int updateRole(Role role, String functons);
+    List<Role> getRoles(Role role) throws Exception;
 }

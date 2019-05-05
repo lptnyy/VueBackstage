@@ -2,6 +2,7 @@ package com.ajax.ajaxweb.controller;
 import com.ajax.ajaxweb.entity.User;
 import com.ajax.ajaxweb.service.IUserService;
 import com.ajax.ajaxweb.util.JsonVo;
+import com.ajax.ajaxweb.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,7 +50,7 @@ public class UserController {
      * @return
      */
     @RequestMapping(path = "/updateStat")
-    public String getRoles(
+    public String updateStat(
             @RequestParam(value = "id", defaultValue = "") String id,
             @RequestParam(value = "stat", defaultValue = "") int stat){
         JsonVo<List<User>> jsonVo = new JsonVo<>();
@@ -73,12 +74,63 @@ public class UserController {
      * @return
      */
     @RequestMapping(path = "/deleteUser")
-    public String getRoles(
+    public String deleteUser(
             @RequestParam(value = "id", defaultValue = "") String id){
         JsonVo<List<User>> jsonVo = new JsonVo<>();
         jsonVo.setCallback("true");
         try{
             userService.deleteUser(Integer.valueOf(id));
+            jsonVo.setResult(true);
+        } catch (Exception e) {
+            jsonVo.setResult(false);
+            jsonVo.setMsg(e.getMessage());
+        }
+        return jsonVo.toString();
+    }
+
+    /**
+     * 删除用户
+     * @return
+     */
+    @RequestMapping(path = "/addUser")
+    public String addUser(
+            @RequestParam(value = "userName", defaultValue = "") String userName,
+            @RequestParam(value = "userPass", defaultValue = "") String userPass,
+            @RequestParam(value = "reuserPass", defaultValue = "") String reuserPass,
+            @RequestParam(value = "roles", defaultValue = "") String roles){
+        JsonVo<List<User>> jsonVo = new JsonVo<>();
+        jsonVo.setCallback("true");
+        try{
+            if(!StringUtils.isNotNull(userName)){
+                jsonVo.setResult(false);
+                jsonVo.setMsg("用户名不能为空");
+                return jsonVo.toString();
+            }
+            if(!StringUtils.isNotNull(userPass)){
+                jsonVo.setResult(false);
+                jsonVo.setMsg("用户密码不能为空");
+                return jsonVo.toString();
+            }
+            if(!StringUtils.isNotNull(reuserPass)){
+                jsonVo.setResult(false);
+                jsonVo.setMsg("重复密码不能为空");
+                return jsonVo.toString();
+            }
+            if(!userPass.equals(reuserPass)){
+                jsonVo.setResult(false);
+                jsonVo.setMsg("两次密码输入不同");
+                return jsonVo.toString();
+            }
+            User user = new User();
+            user.setUserName(userName);
+            User oldUser = userService.getUser(user);
+            if (oldUser != null) {
+                jsonVo.setResult(false);
+                jsonVo.setMsg("此用户已经存在");
+                return jsonVo.toString();
+            }
+            user.setUserPass(userPass);
+            userService.addUser(user,roles);
             jsonVo.setResult(true);
         } catch (Exception e) {
             jsonVo.setResult(false);

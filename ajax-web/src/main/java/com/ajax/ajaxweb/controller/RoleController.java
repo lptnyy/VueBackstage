@@ -39,6 +39,26 @@ public class RoleController {
     }
 
     /**
+     * 查询角色列表
+     * @return
+     */
+    @RequestMapping(path = "/getUserRoles")
+    public String getRoles(){
+        JsonVo<List<Role>> jsonVo = new JsonVo<>();
+        jsonVo.setCallback("true");
+        try{
+            Role role = new Role();
+            role.setStat(0);
+            jsonVo.setObj(iRoleService.getRoles(role));
+            jsonVo.setResult(true);
+        } catch (Exception e) {
+            jsonVo.setResult(false);
+            jsonVo.setMsg(e.getMessage());
+        }
+        return jsonVo.toString();
+    }
+
+    /**
      * delete role
      * @param id
      * @return

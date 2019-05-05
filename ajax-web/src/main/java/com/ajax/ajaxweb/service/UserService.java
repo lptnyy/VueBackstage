@@ -1,6 +1,8 @@
 package com.ajax.ajaxweb.service;
 import com.ajax.ajaxweb.entity.User;
+import com.ajax.ajaxweb.entity.UserRole;
 import com.ajax.ajaxweb.mapper.UserMapper;
+import com.ajax.ajaxweb.mapper.UserRoleMapper;
 import com.ajax.ajaxweb.util.MapUtil;
 import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
@@ -12,6 +14,9 @@ public class UserService implements IUserService{
 
     @Resource
     UserMapper userMapper;
+
+    @Resource
+    UserRoleMapper userRoleMapper;
 
     @Override
     public User getUser(User user) throws Exception{
@@ -44,7 +49,25 @@ public class UserService implements IUserService{
 
     @Override
     public int deleteUser(Integer id) throws Exception {
+        userRoleMapper.deleteUserRole(id);
         return userMapper.deleteUser(id);
+    }
+
+    @Override
+    public int addUser(User user, String roles) throws Exception {
+        user.setToken("");
+        user.setLoginNum(0);
+        user.setStat(0);
+        user.setRoleId(0);
+        String[] funciton = roles.split(",");
+        userMapper.addUser(user);
+        for(String fun:funciton) {
+            UserRole userRole = new UserRole();
+            userRole.setRoleId(Integer.valueOf(fun));
+            userRole.setUserId(user.getId());
+            userRoleMapper.addUserRole(userRole);
+        }
+        return 0;
     }
 
 }

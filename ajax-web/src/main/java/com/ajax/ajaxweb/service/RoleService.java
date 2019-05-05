@@ -96,4 +96,10 @@ public class RoleService implements IRoleService{
         }
         return roleMapper.updateRole(role);
     }
+
+    @Override
+    public List<Role> getRoles(Role role) throws Exception{
+        Map map = MapUtil.objectToMap(role);
+        return roleMapper.getRoles(map);
+    }
 }

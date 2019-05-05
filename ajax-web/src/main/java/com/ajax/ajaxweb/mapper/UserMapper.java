@@ -56,4 +56,13 @@ public interface UserMapper {
      */
     @Delete("delete from user where id=#{id}")
     int deleteUser(Integer id);
+
+    /**
+     * 添加一个用户
+     * @param user
+     * @return
+     */
+    @Insert("insert into user(userName,roleId,userPass,loginNum,token,stat) values(#{userName},#{roleId},#{userPass},#{loginNum},#{token},#{stat})")
+    @Options(useGeneratedKeys=true, keyProperty="id", keyColumn="id")
+    int addUser(User user);
 }
