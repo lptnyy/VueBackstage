@@ -104,7 +104,6 @@ public class FunctionController {
             jsonVo.setObj(functionService.add(function));
             jsonVo.setResult(true);
         } catch (Exception e){
-            e.printStackTrace();
             jsonVo.setResult(false);
             jsonVo.setMsg(e.getMessage());
         }
@@ -135,7 +134,6 @@ public class FunctionController {
             jsonVo.setObj(functionService.delete(Integer.valueOf(id)));
             jsonVo.setResult(true);
         } catch (Exception e){
-            e.printStackTrace();
             jsonVo.setResult(false);
             jsonVo.setMsg(e.getMessage());
         }
@@ -178,7 +176,6 @@ public class FunctionController {
             jsonVo.setObj(functionService.updateStat(Integer.valueOf(id),Integer.valueOf(stat)));
             jsonVo.setResult(true);
         } catch (Exception e){
-            e.printStackTrace();
             jsonVo.setResult(false);
             jsonVo.setMsg(e.getMessage());
         }

@@ -18,4 +18,7 @@ public interface UserRoleMapper {
 
     @Insert("insert into user_role(userId,roleId) values (#{userId},#{roleId})")
     int addUserRole(UserRole userRole);
+
+    @Select("select count(*) from user_role t where t.roleId=#{roleId}")
+    int checkURCount(Integer roleId);
 }

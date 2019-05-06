@@ -5,6 +5,7 @@ import com.ajax.ajaxweb.entity.RoleFunctions;
 import com.ajax.ajaxweb.entity.vo.RoleVo;
 import com.ajax.ajaxweb.mapper.RoleFunctionsMapper;
 import com.ajax.ajaxweb.mapper.RoleMapper;
+import com.ajax.ajaxweb.mapper.UserRoleMapper;
 import com.ajax.ajaxweb.util.DateUtil;
 import com.ajax.ajaxweb.util.MapUtil;
 import org.springframework.beans.BeanUtils;
@@ -23,6 +24,9 @@ public class RoleService implements IRoleService{
 
     @Resource
     RoleFunctionsMapper roleFunctionsMapper;
+
+    @Resource
+    UserRoleMapper userRoleMapper;
 
     @Override
     public Role getRole(Role role) throws Exception {
@@ -57,6 +61,9 @@ public class RoleService implements IRoleService{
 
     @Override
     public int deleteRole(Integer roleId) throws Exception {
+        if (userRoleMapper.checkURCount(roleId) >0) {
+            throw  new Exception("该角色已被使用无法进行删除");
+        }
         roleFunctionsMapper.del(roleId);
         return roleMapper.deleteRoles(roleId);
     }

@@ -27,4 +27,12 @@ public interface RoleFunctionsMapper {
      */
     @Delete("delete from role_functions where roleId=#{roleId}")
     int del(@Param(value = "roleId") Integer roleId);
+
+    /**
+     * 验证权限是否被使用
+     * @param functionId
+     * @return
+     */
+    @Select("select count(*) from role_functions y,functions s where y.functionId = s.id and (y.functionId = #{functionId} or s.parentId = #{functionId})")
+    int checkRFCount(@Param(value = "functionId") Integer functionId);
 }

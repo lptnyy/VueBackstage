@@ -2,6 +2,7 @@ package com.ajax.ajaxweb.service;
 import com.ajax.ajaxweb.entity.Function;
 import com.ajax.ajaxweb.entity.vo.FunctionVo;
 import com.ajax.ajaxweb.mapper.FunctionMapper;
+import com.ajax.ajaxweb.mapper.RoleFunctionsMapper;
 import com.ajax.ajaxweb.util.DateUtil;
 import com.ajax.ajaxweb.util.MapUtil;
 import java.util.ArrayList;
@@ -17,6 +18,9 @@ public class FunctionService implements IFunctionService{
 
     @Resource
     FunctionMapper functionMapper;
+
+    @Resource
+    RoleFunctionsMapper roleFunctionsMapper;
 
     @Override
     public List<FunctionVo> getList(Function function) throws Exception {
@@ -83,6 +87,9 @@ public class FunctionService implements IFunctionService{
 
     @Override
     public int delete(Integer id) throws Exception {
+        if (roleFunctionsMapper.checkRFCount(id) > 0) {
+            throw new Exception("该权限已被使用无法进行删除");
+        }
         return functionMapper.delete(id);
     }
 
